@@ -1,0 +1,39 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.cell-container{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 500px;
+    height: 500px;
+}
+
+.cell{
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    cursor: pointer;
+}
+
+.game-info{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    text-align: center;
+}
+
