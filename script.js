@@ -2,10 +2,9 @@ const palyerXScore = document.getElementById('X');
 const playerOScore = document.getElementById('O');
 const tieScore = document.getElementById('Ties');
 const cells = document.querySelectorAll('.cell')
-const X= document.querySelectorAll('.fa-xmark');
-const O= document.querySelectorAll('.fa-o');
 const x="<i class=\"fa-solid fa-xmark\"></i>"
 const o="<i class=\"fa-solid fa-o\"></i>"
+const player =document.querySelectorAll('h2')
 
 let scoreX = 0;
 let scoreO = 0;
@@ -43,15 +42,26 @@ function resetBoard() {
         cell.innerHTML = "";
     }
     Turn = x;
+    player[0].style.color="powderblue";
+    player[4].style.color="white";
 }
 
 cells.forEach((cell,index) => {
     cell.addEventListener('click', function() {
+        if (Turn === x){
+            player[4].style.color="powderblue";
+            player[0].style.color="white";
+        }
+        else{
+            player[0].style.color="powderblue";
+            player[4].style.color="white";
+        }   
         if (board[index] === "") {
             board[index] = Turn;
             cell.innerHTML = Turn;
             if (checkWin()) {
                 if (Turn === x) {
+
                     scoreX++;
                     palyerXScore.textContent = scoreX;
                 }
@@ -73,5 +83,4 @@ cells.forEach((cell,index) => {
         console.log(checkWin())
     });
 })
-
 
